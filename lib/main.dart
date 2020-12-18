@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:phnauthnew/screens/landingPage.dart';
@@ -18,12 +19,48 @@ class MyApp extends StatelessWidget {
       create: (context) => AuthService(),
       child: MaterialApp(
         title: 'TiffinBox Associate',
-        theme: ThemeData(
-          primarySwatch: Colors.indigo,
-        ),
-        home: LandingPage(
-          phoneNumber: null,
-          personalDetailsProvided: false,
+        home: SplashScreen(),
+        debugShowCheckedModeBanner: false,
+      ),
+    );
+  }
+}
+
+class SplashScreen extends StatefulWidget {
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(
+      Duration(seconds: 3),
+      () => Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => LandingPage(
+              phoneNumber: null,
+              personalDetailsProvided: false,
+            ),
+          )),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        // color: Colors.redAccent,
+        image: DecorationImage(
+            image: AssetImage('assets/images/splashbg.png'), fit: BoxFit.fill),
+      ),
+      child: Center(
+        child: Container(
+          child: Image.asset('assets/images/logo.png'),
+          height: 100.0,
+          width: 100.0,
         ),
       ),
     );

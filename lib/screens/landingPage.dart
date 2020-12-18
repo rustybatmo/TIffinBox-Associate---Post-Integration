@@ -1,4 +1,4 @@
-import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:phnauthnew/screens/home/homePage.dart';
 import 'package:phnauthnew/screens/personalDetails.dart';
@@ -11,16 +11,14 @@ class LandingPage extends StatefulWidget {
   final String phoneNumber;
   final bool personalDetailsProvided;
   LandingPage(
-      {@required this.phoneNumber, @required this.personalDetailsProvided});
+    {@required this.phoneNumber, @required this.personalDetailsProvided});
 
   @override
   _LandingPageState createState() => _LandingPageState();
 }
-
 class _LandingPageState extends State<LandingPage> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
